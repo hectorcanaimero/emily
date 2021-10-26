@@ -1,0 +1,109 @@
+<app-header></app-header>
+<ion-content>
+  <div class="container mt-4">
+    <div class="row justify-content-center mb-5">
+      <div class="col-10 col-md-10">
+        <ion-segment mode="md" (ionChange)="segmentChanged($event)"  [value]="segment">
+          <ion-segment-button  mode="md" value="mechanics">
+            <ion-label>mechanics</ion-label>
+          </ion-segment-button>
+          <ion-segment-button  mode="md" value="replacement">
+            <ion-label>replacement</ion-label>
+          </ion-segment-button>
+        </ion-segment>
+      </div>
+    </div>
+    <div class="row justify-content-center mb-3">
+      <div class="col-11">
+        <div class="box" *ngIf="segment === 'mechanics';else replacement">
+          <ion-item lines="none" class="mb-2">
+            <ion-label>Vehicles</ion-label>
+            <ion-select interface="action-sheet" placeholder="Select..." (ionChange)="getBrand($event)">
+              <ion-select-option [value]="item.id" *ngFor="let item of vehicles">{{ item.name }}</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item lines="none" class="mb-2">
+            <ion-label>Brand</ion-label>
+            <ion-select interface="action-sheet" placeholder="Select..." (ionChange)="getModel($event)">
+              <ion-select-option [value]="item.id"  *ngFor="let item of filterBrands">{{ item.name }}</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item lines="none" class="mb-2">
+            <ion-label>Model</ion-label>
+            <ion-select interface="action-sheet" placeholder="Select...">
+              <ion-select-option [value]="item.id"  *ngFor="let item of filterModels">{{ item.name }}</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-label position="stacked">Problem</ion-label>
+            <ion-textarea [rows]="3" placeholder="Enter more information here..."></ion-textarea>
+          </ion-item>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-6">
+        <ion-button  expand="block" color="warning">
+          SEND
+        </ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>
+<ng-template #replacement>
+  <div class="box">
+    <ion-item lines="none" class="mb-2">
+      <ion-label>Vehicles</ion-label>
+      <ion-select interface="action-sheet" placeholder="Select..." (ionChange)="getBrand($event)">
+        <ion-select-option [value]="item.id" *ngFor="let item of vehicles">{{ item.name }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item lines="none" class="mb-2">
+      <ion-label>Brand</ion-label>
+      <ion-select interface="action-sheet" placeholder="Select..." (ionChange)="getModel($event)">
+        <ion-select-option [value]="item.id"  *ngFor="let item of filterBrands">{{ item.name }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item lines="none" class="mb-2">
+      <ion-label>Model</ion-label>
+      <ion-select interface="action-sheet" placeholder="Select...">
+        <ion-select-option [value]="item.id"  *ngFor="let item of filterModels">{{ item.name }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item lines="none" class="mb-2">
+      <ion-label>Year</ion-label>
+      <ion-select interface="action-sheet" placeholder="Select Pizza">
+        <ion-select-option value="peperoni">Peperoni</ion-select-option>
+        <ion-select-option value="hawaii">Hawaii</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item lines="none" class="mb-2">
+      <ion-label>Condition</ion-label>
+      <ion-select interface="action-sheet" placeholder="Select...">
+        <ion-select-option [value]="item.id"  *ngFor="let item of conditions">{{ item.name }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item lines="none" class="mb-2">
+      <ion-label position="stacked">Part name</ion-label>
+      <ion-input placeholder="Enter more information here..."></ion-input>
+    </ion-item>
+    <ion-item lines="none" class="mb-2">
+      <ion-label position="stacked">Problem</ion-label>
+      <ion-textarea [rows]="3" placeholder="Enter more information here..."></ion-textarea>
+    </ion-item>
+    <ion-item (click)="capturePhoto()" *ngIf="capture.length < 5">
+      <ion-label>Add photo</ion-label>
+      <ion-button expand="block" fill="clear" shape="round">
+        <ion-icon slot="icon-only" name="add-circle"></ion-icon>
+      </ion-button>
+    </ion-item>
+    <ion-slides class="mt-3" mode="ios" scrollbar="ios" [options]="slideOpts">
+      <ion-slide *ngFor="let item of capture; let index = index">
+        <div class="images">
+          <ion-icon name="close-circle" (click)="removeCapture(item)"></ion-icon>
+          <img [src]="item" class="img-fluid">
+        </div>
+      </ion-slide>
+    </ion-slides>
+  </div>
+</ng-template>

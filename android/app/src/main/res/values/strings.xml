@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">meka-cliente</string>
+    <string name="title_activity_main">meka-cliente</string>
+    <string name="package_name">com.devcreativo.mekaapp</string>
+    <string name="custom_url_scheme">com.devcreativo.mekaapp</string>
+</resources>

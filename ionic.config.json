@@ -1,0 +1,7 @@
+{
+  "name": "meka-cliente",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

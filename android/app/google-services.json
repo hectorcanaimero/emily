@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "882572463657",
+    "project_id": "meka-app",
+    "storage_bucket": "meka-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:882572463657:android:816bd619435bafb9e69638",
+        "android_client_info": {
+          "package_name": "com.devcreativo.mekaapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "882572463657-0oipic4nqjj3n3adbn9vn7j8fvgmq1d3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7njc9IjM84ihgcMypPOlEMK-4EKIaJ4Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "882572463657-0oipic4nqjj3n3adbn9vn7j8fvgmq1d3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

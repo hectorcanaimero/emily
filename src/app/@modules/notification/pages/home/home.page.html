@@ -1,0 +1,29 @@
+<app-header></app-header>
+<ion-content>
+  <div class="container mt-2">
+    <ion-item *ngFor="let item of [1, 2]">
+      <ion-icon name="trash" slot="end" color="danger"></ion-icon>
+      <ion-label>
+        <h2>Title Notification {{ item }}</h2>
+        <p class="ion-text-wrap">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been...</p>
+      </ion-label>
+    </ion-item>
+    <div class="box">
+      <img src="https://www.valvoline.com/es-latinamerica/-/media/LatinAmericaRegion/Images/about-us/mech_mnth_latm.ashx?la=en&hash=96C03EA509CF8FF9A7AC79F49B62CA7EF7B92CDE" class="img-fluid" alt="">
+      <ion-item>
+        <ion-icon name="trash" slot="end" color="danger"></ion-icon>
+        <ion-label>
+          <h2>Title Notification with Image</h2>
+          <p class="ion-text-wrap">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been...</p>
+        </ion-label>
+      </ion-item>
+    </div>
+    <ion-item *ngFor="let item of [3, 4]">
+      <ion-icon name="trash" slot="end" color="danger"></ion-icon>
+      <ion-label>
+        <h2>Title Notification {{ item }}</h2>
+        <p class="ion-text-wrap">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been...</p>
+      </ion-label>
+    </ion-item>
+  </div>
+</ion-content>

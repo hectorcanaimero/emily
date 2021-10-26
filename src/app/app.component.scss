@@ -1,0 +1,19 @@
+ion-menu {
+  ion-header {
+    ion-toolbar {
+      --background: #080F18;
+      ion-item {
+        --background: none;
+        --border-color: #efefef;
+        ion-avatar {
+          width: 60px;
+          height: 60px;
+        }
+        ion-label {
+          h2 { color: #fff; }
+          p { color: #bcbcbc; }
+        }
+      }
+    }
+  }
+}

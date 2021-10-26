@@ -1,0 +1,21 @@
+<div class="container my-3">
+  <ion-label>
+    <h3 class="mb-3">{{ "WIDGET.LAST_REPAIRED.TITLE" | translate }}</h3>
+  </ion-label>
+  <ion-slides #slides [options]="options">
+    <ion-slide class="text-left" *ngFor="let item of [1, 2, 3, 4, 5]">
+      <div class="box">
+        <div class="maps">
+          <ion-icon slot="icon-only" name="location" size="large" color="danger"></ion-icon>
+        </div>
+        <div class="items">
+          <ion-label>
+            <h2>Luís Tomas</h2>
+            <p>Tire Master</p>
+          </ion-label>
+        </div>
+      </div>
+    </ion-slide>
+  </ion-slides>
+</div>
+

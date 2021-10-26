@@ -1,0 +1,90 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="ios">
+    <ion-buttons slot="start">
+      <ion-back-button text=""></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="container mt-4">
+    <div class="row justify-content-center">
+      <div class="col-6">
+        <div class="profile">
+          <ion-avatar>
+            <img src="https://pbs.twimg.com/profile_images/1406394350372900868/Itqb69Xm_400x400.jpg">
+          </ion-avatar>
+        </div>
+      </div>
+    </div>
+    <div class="head">
+      <ion-label>
+        <h1>{{ user?.fist_name }} {{ user.last_name }}</h1>
+      </ion-label>
+    </div>
+    <form [formGroup]="registerForm">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <ion-item lines="none">
+            <ion-label position="stacked">{{ "SIGN.FIRSTNAME" | translate }} <ion-text color="danger">*</ion-text></ion-label>
+            <ion-input required formControlName="firstname" type="text" [value]="user.fist_name"></ion-input>
+          </ion-item>
+          <ion-item lines="none" *ngIf="registerForm.get('firstname').invalid && registerForm.get('firstname').touched">
+            <ion-text color="danger" class="form-error">
+              <small>{{ "SIGN.ERROR.FIRSTNAME" | translate }}</small>
+            </ion-text>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-label position="stacked">{{ "SIGN.LASTNAME" | translate }} <ion-text color="danger">*</ion-text></ion-label>
+            <ion-input required formControlName="lastname" type="text"  [value]="user.last_name"></ion-input>
+          </ion-item>
+          <ion-item lines="none" *ngIf="registerForm.get('lastname').invalid && registerForm.get('lastname').touched">
+            <ion-text color="danger" class="form-error">
+              <small>{{ "SIGN.ERROR.LASTNAME" | translate }}</small>
+            </ion-text>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-label position="stacked">{{ "SIGN.EMAIL" | translate }} <ion-text color="danger">*</ion-text></ion-label>
+            <ion-input required type="email" inputmode="email" formControlName="email"  [value]="user.email"></ion-input>
+          </ion-item>
+          <ion-item lines="none" *ngIf="registerForm.get('email').invalid && registerForm.get('email').touched">
+            <ion-text color="danger" class="form-error">
+              <small>{{ "SIGN.ERROR.EMAIL" | translate }}</small>
+            </ion-text>
+          </ion-item>
+          <ion-item lines="none" class="phone-label mb-0">
+            <ion-label position="stacked">{{ "SIGN.PHONE" | translate }} <ion-text color="danger">*</ion-text></ion-label>
+          </ion-item>
+          <div class="row g-0">
+            <div class="col-5 col-md-3">
+              <ion-item class="country" lines="none">
+                <ion-select placeholder="Country" interface="action-sheet" formControlName="country" [value]="user.country">
+                  <ion-select-option *ngFor="let item of countries" [value]="item.phone_code">
+                    (+{{ item.phone_code }}) {{ item.name  }}</ion-select-option>
+                </ion-select>
+              </ion-item>
+            </div>
+            <div class="col-7 col-md-9">
+              <ion-item class="phone" lines="none">
+                <ion-input required formControlName="phone" type="phone" inputmode="numeric" placeholder="0000-0000" [value]="user.phone"></ion-input>
+              </ion-item>
+            </div>
+          </div>
+          <ion-item class="idima" lines="none">
+            <ion-select placeholder="Idioma" interface="action-sheet" formControlName="country">
+              <ion-select-option *ngFor="let item of idioma" [value]="item.iso">
+                {{ item.name  }}</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </div>
+      </div>
+    </form>
+  </div>
+</ion-content>
+<ion-footer class="ion-no-border">
+  <ion-toolbar mode="ios">
+    <ion-button (click)="onSubmit()" expand="block"
+      fill="clear" shape="round" mode="ios">
+      {{ "SIGN.SEND" | translate }}
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

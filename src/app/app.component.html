@@ -1,0 +1,53 @@
+<ion-app>
+  <ion-menu side="end" menuId="first" contentId="main">
+    <ion-header>
+      <ion-toolbar>
+        <ion-item lines="none" class="my-3">
+          <ion-avatar slot="start">
+            <img src="https://pbs.twimg.com/profile_images/1406394350372900868/Itqb69Xm_400x400.jpg" />
+          </ion-avatar>
+          <ion-label>
+            <h2>{{ user?.fist_name }} {{ user?.last_name }}</h2>
+            <p>
+              <span>4.7</span>
+              <ion-icon name="star" class="ms-1"></ion-icon>
+            </p>
+          </ion-label>
+        </ion-item>
+        <ion-item detail="true" class="mt-2" (click)="onLink('/user/profile')">
+          <ion-label><h2>{{ "SIDEMENU.PROFILE" | translate }}</h2></ion-label>
+        </ion-item>
+        <ion-item detail="true" class="mt-2">
+          <ion-label><h2>{{ "SIDEMENU.MESSAGES" | translate }}</h2></ion-label>
+        </ion-item>
+        <ion-item lines="none"  (click)="signOut()" class="my-1">
+          <ion-label>
+            <h2>{{ "SIDEMENU.SIGN_OUT" | translate }}</h2>
+          </ion-label>
+        </ion-item>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list id="inbox-list">
+        <ion-item>
+          <ion-label>{{ "SIDEMENU.PAGES" | translate }}</ion-label>
+        </ion-item>
+        <ion-menu-toggle auto-hide="false" *ngFor="let item of menus">
+          <ion-item class="my-1" lines="none" detail="false">
+            <ion-label>{{ item | translate }}</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-item>
+          <ion-label>{{ "SIDEMENU.SOCIAL" | translate }}</ion-label>
+        </ion-item>
+        <ion-menu-toggle auto-hide="false" *ngFor="let item of social">
+          <ion-item class="my-1" lines="none" detail="false">
+            <ion-icon [name]="item.icon" slot="start"></ion-icon>
+            <ion-label>{{ item.name | translate }}</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet id="main"></ion-router-outlet>
+</ion-app>
