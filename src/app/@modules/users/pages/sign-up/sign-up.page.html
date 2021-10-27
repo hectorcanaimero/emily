@@ -59,7 +59,7 @@
             <div class="col-5 col-md-3">
               <ion-item class="country" lines="none">
                 <ion-select placeholder="Country" interface="action-sheet" formControlName="country">
-                  <ion-select-option *ngFor="let item of countries" [value]="item.phone_code">
+                  <ion-select-option *ngFor="let item of countries" [value]="item.id">
                     (+{{ item.phone_code }}) {{ item.name  }}</ion-select-option>
                 </ion-select>
               </ion-item>
@@ -71,7 +71,7 @@
             </div>
           </div>
           <ion-item class="idima" lines="none">
-            <ion-select placeholder="Idioma" interface="action-sheet" formControlName="country">
+            <ion-select placeholder="Idioma" interface="action-sheet" formControlName="language">
               <ion-select-option *ngFor="let item of idioma" [value]="item.iso">
                 {{ item.name  }}</ion-select-option>
             </ion-select>

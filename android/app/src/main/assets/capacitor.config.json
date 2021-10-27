@@ -26,6 +26,6 @@
 	},
 	"server": {
 		"cleartext": true,
-		"url": "https://guayoyo-inc.web.app/"
+		"url": "http://192.168.250.163:8100"
 	}
 }

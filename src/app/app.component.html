@@ -32,7 +32,7 @@
         <ion-item>
           <ion-label>{{ "SIDEMENU.PAGES" | translate }}</ion-label>
         </ion-item>
-        <ion-menu-toggle auto-hide="false" *ngFor="let item of menus">
+        <ion-menu-toggle auto-hide="false" *ngFor="let item of menus" (click)="onPost(item)">
           <ion-item class="my-1" lines="none" detail="false">
             <ion-label>{{ item | translate }}</ion-label>
           </ion-item>

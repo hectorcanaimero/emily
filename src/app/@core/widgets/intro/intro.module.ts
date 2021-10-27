@@ -10,8 +10,8 @@ import { IntroWidgetComponent } from './intro.component';
   declarations: [IntroWidgetComponent],
   exports: [IntroWidgetComponent],
   imports: [
-    CommonModule,
     IonicModule,
+    CommonModule,
     TranslateModule,
   ]
 })

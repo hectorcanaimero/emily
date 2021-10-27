@@ -1,5 +1,6 @@
+import { PostContentsWidgetComponent } from './@modules/contents/widget/post/post.component';
 import { Component, OnInit } from '@angular/core';
-import { LoadingController, MenuController, Platform } from '@ionic/angular';
+import { LoadingController, MenuController, Platform, ModalController } from '@ionic/angular';
 import { App } from '@capacitor/app';
 import { StatusBar } from '@capacitor/status-bar';
 import { SplashScreen } from '@capacitor/splash-screen';
@@ -43,6 +44,7 @@ export class AppComponent implements OnInit {
     private linkService: LinksService,
     public traslate: TraslationService,
     private loadCtrl: LoadingController,
+    private modalCtrl: ModalController,
   ) {
     this.onActive();
   }
@@ -88,5 +90,13 @@ export class AppComponent implements OnInit {
     App.addListener('appStateChange', ({ isActive }) => {
       if(isActive) { this.authService.decoded(); }
     });
+  };
+
+  onPost = async (title: string) => {
+    const modal = await this.modalCtrl.create({
+      component: PostContentsWidgetComponent,
+      componentProps: { title }
+    });
+    await modal.present();
   };
 }

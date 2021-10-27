@@ -25,8 +25,8 @@ const config: CapacitorConfig = {
   },
   server: {
     cleartext: true,
-    // url: 'http://192.168.250.163:8100',
-    url: 'https://guayoyo-inc.web.app/'
+    url: 'http://192.168.250.163:8100',
+    // url: 'https://guayoyo-inc.web.app/'
   },
 };
 
