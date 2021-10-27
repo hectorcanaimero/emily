@@ -13,8 +13,9 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v2
-      - name: Install Dependencies
+      - name: Install Dependencies General
         run:  npm install -g ionic
+      - name: Install Dependencies
         run: npm install
       - name: Build
         run: npm run build
